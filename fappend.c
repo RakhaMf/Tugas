@@ -12,10 +12,11 @@ main(int argc, char *argv[]) {
         exit(-1);
     }
     fd = open(argv [1], O_APPEND|O_WRONLY|O_CREAT, 0644);
-    if (fd < 0)(
+    if (fd < 0)
+    {
         perror(argv[1]);
         exit(-1);
-    )
+    }
     while((n = read(0, buf, sizeof(buf))) >0){
         len = strlen(buf);
         write(fd, buf, len);
